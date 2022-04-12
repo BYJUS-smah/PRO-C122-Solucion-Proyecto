@@ -8,7 +8,7 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
-# api listening to POST requests and predicting sentiments
+# API escuchando los requerimientos POST y prediciendo sentimientos.
 @app.route('/predict' , methods = ['POST'])
 def predict():
 
@@ -16,54 +16,54 @@ def predict():
     review = request.json.get('customer_review')
     if not review:
         response = {'status' : 'error',
-                    'message' : 'Empty Review'}
+                    'message' : 'Opinión vacía'}
     
     else:
 
-        # calling the predict method from prediction.py module
+        # Llamar al método de predicción 'predict' desde el módulo prediction.py.
         sentiment , path = text_sentiment_prediction.predict(review)
         response = {'status' : 'success',
-                    'message' : 'Got it',
+                    'message' : 'Enviado',
                     'sentiment' : sentiment,
                     'path' : path}
 
     return jsonify(response)
 
 
-# Creating an API to save the review, user clicks on the Save button
+# Crear una API para guardar la opinión, el usuario hace clic en el botón de guardar.
 @app.route('/save' , methods = ['POST'])
 def save():
 
-    # extracting date , product name , review , sentiment associated from the JSOn data
+    # Extraer la fecha, nombre del producto, opinión, y sentimiento asociado desde los datos JSON.
     date = request.json.get('date')
     product = request.json.get('product')
     review = request.json.get('review')
     sentiment = request.json.get('sentiment')
 
-    # creating a final variable seperated by commas
+    # Crear una variable final separada por comas.
     data_entry = date + "," + product + "," + review + "," + sentiment
 
-    # open the file in the 'append' mode
+    # Abrir el archivo en el modo 'append'.
     f = open('./static/assets/datafiles/data_entry.csv' , 'a')
 
-    # Log the data in the file
+    # Registrar los datos en el archivo.
     f.write(data_entry + '\n')
 
-    # close the file
+    # Cerrar el archivo.
     f.close()
 
-    # return a success message
+    # Devolver un mensaje de éxito.
     return jsonify({'status' : 'success' , 
-                    'message' : 'Data Logged'})
+                    'message' : 'Datos registrados'})
 
 
-# writing api for chatbot
+# Escribir una API para el chatbot.
 @app.route("/bot-response", methods=["POST"])
 def bot():
-    # Get User Input
+    # Obtener la entrada del usuario.
     input_text = request.json.get("user_bot_input_text")
    
-    # Call the method to get bot response
+    # Llamar al método para obtener la respuesta del bot.
     bot_res = bot_response(input_text)
 
     response = {

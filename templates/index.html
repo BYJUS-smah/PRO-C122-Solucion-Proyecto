@@ -1,9 +1,9 @@
-<!-- there is a starter templte for bootstrap -->
-<!--template starts-->
+<!-- Hay una plantilla inicial para Bootstrap -->
+<!--Inicio de la plantilla-->
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
+    <!-- Etiquetas meta requeridas -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -12,22 +12,22 @@
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
     crossorigin="anonymous">
 
-    <!--Style sheet link-->
+    <!--Enlace a la hoja de diseño-->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
     <!--Jquery CDN google-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     
 
-    <title>Sentiment Analysis</title>
+    <title>Análisis de sentimiento</title>
   </head>
   <body>
 
     <div style="height: 300px ;background-color: #2C313E">
     
       <div class="row">
-        <div class="col-9"><h1 style="padding: 30px 10px; color:white; font-family:cursive">&nbspCUSTOMER REVIEW</h1></div>
-        <div class="col" style="padding-top: 40px;"><h4 id="date" style="color:white; font-family:cursive; font-size:medium;">Date : </h4></div>
+        <div class="col-9"><h1 style="padding: 30px 10px; color:white; font-family:cursive">Opiniones de los clientes</h1></div>
+        <div class="col" style="padding-top: 40px;"><h4 id="date" style="color:white; font-family:cursive; font-size:medium;">Fecha : </h4></div>
       </div>
 
       <div class="row">
@@ -45,14 +45,14 @@
       </div>
 
       <div class="row" style="margin-top:10px" align="center">
-        <div class="col"><button id="m_button" style="background-color:#F98011; color:white; font-family:monospace; width:150px; height:50px; border-radius:30px; border:none; font-size: large; font-weight: bold;">Submit</button></div>
-        <div class="col"><button id="c_button" style="background-color:#F98011; color:white; font-family:monospace; width:150px; height:50px; border-radius:30px; border:none; font-size: large; font-weight: bold;">Submit</button></div>
-        <div class="col"><button id="h_button" style="background-color:#F98011; color:white; font-family:monospace; width:150px; height:50px; border-radius:30px; border:none; font-size: large; font-weight: bold;">Submit</button></div>
-        <div class="col"><button id="v_button" style="background-color:#F98011; color:white; font-family:monospace; width:150px; height:50px; border-radius:30px; border:none; font-size: large; font-weight: bold;">Submit</button></div>
+        <div class="col"><button id="m_button" style="background-color:#F98011; color:white; font-family:monospace; width:150px; height:50px; border-radius:30px; border:none; font-size: large; font-weight: bold;">Enviar</button></div>
+        <div class="col"><button id="c_button" style="background-color:#F98011; color:white; font-family:monospace; width:150px; height:50px; border-radius:30px; border:none; font-size: large; font-weight: bold;">Enviar</button></div>
+        <div class="col"><button id="h_button" style="background-color:#F98011; color:white; font-family:monospace; width:150px; height:50px; border-radius:30px; border:none; font-size: large; font-weight: bold;">Enviar</button></div>
+        <div class="col"><button id="v_button" style="background-color:#F98011; color:white; font-family:monospace; width:150px; height:50px; border-radius:30px; border:none; font-size: large; font-weight: bold;">Enviar</button></div>
       </div>
 
       <div class="row" align="center" style="margin-top: 10px;">
-        <div class="col"><button id="save_button" style="background-color:#38f911; color:white; font-family:monospace; width:150px; height:50px; border-radius:30px; border:none; font-size: large; font-weight: bold;">Save</button></div>
+        <div class="col"><button id="save_button" style="background-color:#38f911; color:white; font-family:monospace; width:150px; height:50px; border-radius:30px; border:none; font-size: large; font-weight: bold;">Guardar</button></div>
       </div>
 
       <div class="row" style="margin-top:10px" align="center">
@@ -72,57 +72,57 @@
     </div>
 
 
-    <!--CHATBOT UI-->
-    <!--Chatbot UI-->
+    <!--UI del CHATBOT-->
+    <!--UI del Chatbot-->
     <div class="chatbox">
-      <!--Chatbot Chat-->
+      <!--Chat del hatbot-->
       <div class="chatbox__chat">
 
-          <!--Chatbot Header-->
+          <!--Encabezado del chatbot-->
           <div class="row chatbox__header">
               <div class="col-2 chatbox__image__header">
                   <img class="chatbox__image" src="./static/assets/chaticons/chatbot-icon.png"  width="55" height="47" alt="image">
               </div>
               <div class="col-10 chatbox__content__header">                        
-                  <p class="chatbox__description">Hi. My name is Alexis. How can I help you?</p>
+                  <p class="chatbox__description">Hola. Mi nombre es Alexis. ¿Cómo puedo ayudarte?</p>
               </div>
           </div>
 
-          <!--Chatbot Messages-->
+          <!--Mensajes del chatbot-->
           <div class="row chatbox__messages__cotainer">
               <div class="col" id="chat_messages">
                   <div class="user__messages">
-                      Hi!
-                      <!--User Message gets appended here-->
+                      ¡Hola!
+                      <!--El mensaje del usuario se agrega aquí-->
                   </div>
                   <div class="bot__messages">
-                      Hi!
-                      <!--Bot Message gets appended here-->
+                    ¡Hola!
+                      <!--El mensaje del bot se agrega aquí-->
                   </div>
               </div>
           </div>
           
 
-          <!--Chatbot Footer-->
+          <!--Pie del chatbot-->
           <div class="row chatbox__footer">
               <div class="col-9 text-left chatbox__input">
                   <input type="text" class="form-control" id="bot_input_text"
-                      placeholder="Type your message here...">
+                      placeholder="Escribe tu mensaje aquí...">
               </div>
               <div class="col-3 text-left chatbox__send__button">
-                  <button class="btn" id="send_button">Send</button>
+                  <button class="btn" id="send_button">Enviar</button>
               </div>
           </div>
       </div>
 
-      <!--Chatbot Button-->
+      <!--Botón del chatbot-->
       <div class="chatbox__button">
           <button id="open_button"></button>
       </div>
     </div>
 
 
-    <!--JS file-->
+    <!--Archivo JS-->
     <script src="static\index.js"></script>
 
   </body>
