@@ -1,12 +1,12 @@
 $(document).ready(function(){
 
-    console.log('Document is Ready')
+    console.log('El documento está listo')
 
     // Obtener la fecha usando el objeto Date() y convertirla en una cadena de caracteres.
     let date = new Date()
     let current_date = date.toDateString()
 
-    // Monstrar la fecha en la página HTML usando JQUERY Y JS.
+    // Mostrar la fecha en la página HTML usando JQUERY Y JS.
     $('#date').text('Fecha : ' + current_date)
 
     
@@ -43,7 +43,7 @@ $(document).ready(function(){
                 emotion = result.sentiment
                 emoji_url = result.path
 
-                //  Actualizar el emoticón y el sentimiento segú corresponda.
+                //  Actualizar el emoticón y el sentimiento según corresponda.
                 if (product  ==  'Smartphone'){
                     $('#m_emoji').attr('src' , emoji_url)
                     $('#m_emotion').text(emotion)
@@ -136,7 +136,7 @@ $(document).ready(function(){
         //  Datos de entrada 
         input_data = {'date' : date , 'product' : product , 'review' : review , 'sentiment' : emotion}
 
-        //  Llamada a AJAX.
+        //  Llamada a AJAX
         $.ajax({
             type : 'POST',
             url : '/save',
