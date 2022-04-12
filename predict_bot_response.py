@@ -18,7 +18,7 @@ from data_preprocessing import get_stem_words
 
 model = tensorflow.keras.models.load_model('./static/assets/model_files/chatbot_model.h5')
 
-# Load data files
+# Cargar archivos con los datos.
 intents = json.loads(open('./static/assets/chatbot_corpus/intents.json').read())
 words = pickle.load(open('./static/assets/chatbot_corpus/words.pkl','rb'))
 classes = pickle.load(open('./static/assets/chatbot_corpus/classes.pkl','rb'))
